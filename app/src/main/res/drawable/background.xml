@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:drawable="@color/colorPrimary" />
+    <item android:drawable="@color/colorWhite" />
 
-    <item>
-        <bitmap android:src="@drawable/lotus_sq"
-            android:gravity="center" />
+    <item
+        android:width="200dp"
+        android:height="200dp"
+        android:gravity="center">
 
+        <bitmap
+            android:src="@drawable/lotus_sq"
+            android:gravity="fill_horizontal|fill_vertical" />
     </item>
 
 </layer-list>
