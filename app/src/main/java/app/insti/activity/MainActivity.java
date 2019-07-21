@@ -61,18 +61,12 @@ import app.insti.api.model.User;
 import app.insti.api.request.UserFCMPatchRequest;
 import app.insti.fragment.BackHandledFragment;
 import app.insti.fragment.CalendarFragment;
-import app.insti.fragment.ComplaintsFragment;
 import app.insti.fragment.ExploreFragment;
 import app.insti.fragment.FeedFragment;
-import app.insti.fragment.FileComplaintFragment;
-import app.insti.fragment.MapFragment;
 import app.insti.fragment.MessMenuFragment;
-import app.insti.fragment.NewsFragment;
 import app.insti.fragment.NotificationsFragment;
-import app.insti.fragment.PlacementBlogFragment;
 import app.insti.fragment.QuickLinksFragment;
 import app.insti.fragment.SettingsFragment;
-import app.insti.fragment.TrainingBlogFragment;
 import app.insti.fragment.UserFragment;
 import app.insti.notifications.NotificationId;
 import me.leolin.shortcutbadger.ShortcutBadger;
@@ -82,11 +76,8 @@ import retrofit2.Response;
 import static app.insti.Constants.DATA_TYPE_BODY;
 import static app.insti.Constants.DATA_TYPE_EVENT;
 import static app.insti.Constants.DATA_TYPE_MAP;
-import static app.insti.Constants.DATA_TYPE_NEWS;
-import static app.insti.Constants.DATA_TYPE_PT;
 import static app.insti.Constants.DATA_TYPE_USER;
 import static app.insti.Constants.FCM_BUNDLE_NOTIFICATION_ID;
-import static app.insti.Constants.MY_PERMISSIONS_REQUEST_LOCATION;
 import static app.insti.Constants.MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE;
 import static app.insti.Constants.RESULT_LOAD_IMAGE;
 
@@ -334,12 +325,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case DATA_TYPE_EVENT:
                 openEventFragment(id);
                 return;
-            case DATA_TYPE_NEWS:
-                updateFragment((new NewsFragment()).withId(id));
-                return;
-            case DATA_TYPE_MAP:
-                updateFragment(MapFragment.newInstance(id));
-                return;
+//            case DATA_TYPE_NEWS:
+//                updateFragment((new NewsFragment()).withId(id));
+//                return;
+//            case DATA_TYPE_MAP:
+//                updateFragment(MapFragment.newInstance(id));
+//                return;
         }
         Log.e("NOTIFICATIONS", "Server sent invalid notification?");
     }
@@ -349,17 +340,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
      */
     private void chooseIntent(String type, String id, String extra) {
         if (extra == null) {
-            chooseIntent(type, id);
-        } else {
-            switch (type) {
-                case DATA_TYPE_PT:
-                    if (extra.contains("/trainingblog")) {
-                        openTrainingBlog(id);
-                    } else {
-                        openPlacementBlog(id);
-                    }
-                    return;
-            }
             chooseIntent(type, id);
         }
     }
@@ -543,16 +523,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 updateFragment(ExploreFragment.newInstance());
                 break;
 
-            case R.id.nav_news:
-                updateFragment(new NewsFragment());
-                break;
-
-            case R.id.nav_placement_blog:
-                openPlacementBlog();
-                break;
-            case R.id.nav_training_blog:
-                openTrainingBlog();
-                break;
+//            case R.id.nav_news:
+//                updateFragment(new NewsFragment());
+//                break;
+//
+//            case R.id.nav_placement_blog:
+//                openPlacementBlog();
+//                break;
+//            case R.id.nav_training_blog:
+//                openTrainingBlog();
+//                break;
 
             case R.id.nav_mess_menu:
                 MessMenuFragment messMenuFragment = new MessMenuFragment();
@@ -566,19 +546,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 QuickLinksFragment quickLinksFragment = new QuickLinksFragment();
                 updateFragment(quickLinksFragment);
                 break;
-            case R.id.nav_map:
-                MapFragment mapFragment = new MapFragment();
-                updateFragment(mapFragment);
-                break;
+//            case R.id.nav_map:
+//                MapFragment mapFragment = new MapFragment();
+//                updateFragment(mapFragment);
+//                break;
 
-            case R.id.nav_complaint:
-                if (session.isLoggedIn()) {
-                    ComplaintsFragment complaintsFragment = new ComplaintsFragment();
-                    updateFragment(complaintsFragment);
-                } else {
-                    Toast.makeText(this, Constants.LOGIN_MESSAGE, Toast.LENGTH_LONG).show();
-                }
-                break;
+//            case R.id.nav_complaint:
+//                if (session.isLoggedIn()) {
+//                    ComplaintsFragment complaintsFragment = new ComplaintsFragment();
+//                    updateFragment(complaintsFragment);
+//                } else {
+//                    Toast.makeText(this, Constants.LOGIN_MESSAGE, Toast.LENGTH_LONG).show();
+//                }
+//                break;
 
             case R.id.nav_settings:
                 SettingsFragment settingsFragment = new SettingsFragment();
@@ -597,33 +577,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     /**
      * Open placement blog fragment
      */
-    private void openPlacementBlog() {
-        openPlacementBlog(null);
-    }
+//    private void openPlacementBlog() {
+//        openPlacementBlog(null);
+//    }
+//
+//    private void openPlacementBlog(String id) {
+//        if (session.isLoggedIn()) {
+//            PlacementBlogFragment placementBlogFragment = new PlacementBlogFragment();
+//            if (id != null) placementBlogFragment.withId(id);
+//            updateFragment(placementBlogFragment);
+//        } else {
+//            Toast.makeText(this, Constants.LOGIN_MESSAGE, Toast.LENGTH_LONG).show();
+//        }
+//    }
 
-    private void openPlacementBlog(String id) {
-        if (session.isLoggedIn()) {
-            PlacementBlogFragment placementBlogFragment = new PlacementBlogFragment();
-            if (id != null) placementBlogFragment.withId(id);
-            updateFragment(placementBlogFragment);
-        } else {
-            Toast.makeText(this, Constants.LOGIN_MESSAGE, Toast.LENGTH_LONG).show();
-        }
-    }
-
-    private void openTrainingBlog() {
-        openTrainingBlog(null);
-    }
-
-    private void openTrainingBlog(String id) {
-        if (session.isLoggedIn()) {
-            TrainingBlogFragment trainingBlogFragment = new TrainingBlogFragment();
-            if (id != null) trainingBlogFragment.withId(id);
-            updateFragment(trainingBlogFragment);
-        } else {
-            Toast.makeText(this, Constants.LOGIN_MESSAGE, Toast.LENGTH_LONG).show();
-        }
-    }
+//    private void openTrainingBlog() {
+//        openTrainingBlog(null);
+//    }
+//
+//    private void openTrainingBlog(String id) {
+//        if (session.isLoggedIn()) {
+//            TrainingBlogFragment trainingBlogFragment = new TrainingBlogFragment();
+//            if (id != null) trainingBlogFragment.withId(id);
+//            updateFragment(trainingBlogFragment);
+//        } else {
+//            Toast.makeText(this, Constants.LOGIN_MESSAGE, Toast.LENGTH_LONG).show();
+//        }
+//    }
 
     /**
      * Change the active fragment to the supplied one
@@ -638,10 +618,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             bundle.putString(Constants.USER_HOSTEL, session.isLoggedIn() && currentUser.getHostel() != null ? currentUser.getHostel() : "1");
         if (fragment instanceof SettingsFragment && session.isLoggedIn())
             bundle.putString(Constants.USER_ID, currentUser.getUserID());
-        if (fragment instanceof ComplaintsFragment && session.isLoggedIn()) {
-            bundle.putString(Constants.USER_ID, currentUser.getUserID());
-            bundle.putString(Constants.CURRENT_USER_PROFILE_PICTURE, currentUser.getUserProfilePictureUrl());
-        }
+//        if (fragment instanceof ComplaintsFragment && session.isLoggedIn()) {
+//            bundle.putString(Constants.USER_ID, currentUser.getUserID());
+//            bundle.putString(Constants.CURRENT_USER_PROFILE_PICTURE, currentUser.getUserProfilePictureUrl());
+//        }
         fragment.setArguments(bundle);
         FragmentManager manager = getSupportFragmentManager();
         if (fragment instanceof FeedFragment)
@@ -667,23 +647,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     startActivityForResult(i, RESULT_LOAD_IMAGE);
                 }
                 return;
-            case MY_PERMISSIONS_REQUEST_LOCATION:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // Map
-                    MapFragment mapFragment = (MapFragment) getSupportFragmentManager().findFragmentByTag(MapFragment.TAG);
-                    if (mapFragment != null && mapFragment.isVisible()) {
-                        mapFragment.setupGPS(true);
-                    }
-
-                    // File complaint
-                    FileComplaintFragment fileComplaintFragment = (FileComplaintFragment) getSupportFragmentManager().findFragmentByTag(FileComplaintFragment.TAG);
-                    if (fileComplaintFragment != null && fileComplaintFragment.isVisible()) {
-                        fileComplaintFragment.getMapReady();
-                    }
-                } else {
-                    Toast toast = Toast.makeText(MainActivity.this, "Need Permission", Toast.LENGTH_SHORT);
-                    toast.show();
-                }
+//            case MY_PERMISSIONS_REQUEST_LOCATION:
+//                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//                    // Map
+////                    MapFragment mapFragment = (MapFragment) getSupportFragmentManager().findFragmentByTag(MapFragment.TAG);
+////                    if (mapFragment != null && mapFragment.isVisible()) {
+////                        mapFragment.setupGPS(true);
+////                    }
+//
+//                    // File complaint
+//                    FileComplaintFragment fileComplaintFragment = (FileComplaintFragment) getSupportFragmentManager().findFragmentByTag(FileComplaintFragment.TAG);
+//                    if (fileComplaintFragment != null && fileComplaintFragment.isVisible()) {
+//                        fileComplaintFragment.getMapReady();
+//                    }
+//                } else {
+//                    Toast toast = Toast.makeText(MainActivity.this, "Need Permission", Toast.LENGTH_SHORT);
+//                    toast.show();
+//                }
         }
     }
 

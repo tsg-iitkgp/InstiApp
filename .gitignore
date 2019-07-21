@@ -13,3 +13,7 @@
 /captures
 .externalNativeBuild
 
+.idea/
+.project/
+.settings/
+.idea/

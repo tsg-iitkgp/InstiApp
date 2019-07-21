@@ -38,7 +38,7 @@
     <Preference
         app:key="about"
         app:title="About"
-        app:summary="The InstiApp Team"
+        app:summary="The ApnaInsti Team"
         android:icon="@drawable/baseline_info_gray_36"/>
 
     <Preference

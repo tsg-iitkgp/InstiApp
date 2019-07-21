@@ -62,11 +62,11 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         calendarPref.setValue(sharedPref.getString(Constants.CALENDAR_DIALOG, Constants.CALENDAR_DIALOG_ALWAYS_ASK));
 
         // Update Profile
-        Preference profilePref = findPreference("profile");
-        profilePref.setOnPreferenceClickListener(preference -> {
-            openWebURL("https://gymkhana.iitb.ac.in/sso/user");
-            return false;
-        });
+//        Preference profilePref = findPreference("profile");
+//        profilePref.setOnPreferenceClickListener(preference -> {
+//            openWebURL("https://gymkhana.iitb.ac.in/sso/user");
+//            return false;
+//        });
 
         // Feedback
         Preference feedbackPref = findPreference("feedback");
@@ -83,18 +83,18 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         });
 
         // Logout
-        Preference logoutPref = findPreference("logout");
-        logoutPref.setOnPreferenceClickListener(preference -> {
-            logout();
-            return false;
-        });
+//        Preference logoutPref = findPreference("logout");
+//        logoutPref.setOnPreferenceClickListener(preference -> {
+//            logout();
+//            return false;
+//        });
 
         // Disable buttons if not logged in
-        final SessionManager sessionManager = new SessionManager(getContext());
-        if (!sessionManager.isLoggedIn()) {
-            showContactPref.setVisible(false);
-            logoutPref.setVisible(false);
-        }
+//        final SessionManager sessionManager = new SessionManager(getContext());
+//        if (!sessionManager.isLoggedIn()) {
+//            showContactPref.setVisible(false);
+//            logoutPref.setVisible(false);
+//        }
     }
 
     @Override
