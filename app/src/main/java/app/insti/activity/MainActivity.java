@@ -250,10 +250,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         String id = getResources().getString(R.string.default_notification_channel_id);
 
         // The user-visible name of the channel.
-        CharSequence name = "InstiApp";
+        CharSequence name = "ApnaInsti";
 
         // The user-visible description of the channel.
-        String description = "InstiApp Notifications";
+        String description = "ApnaInsti Notifications";
 
         int importance = NotificationManager.IMPORTANCE_HIGH;
 

@@ -475,7 +475,7 @@ public class EventFragment extends BackHandledFragment implements TransitionTarg
         CheckBox dontShowAgain = layout.findViewById(R.id.skip);
 
         dialogBuilder.setTitle("Add to Calendar")
-                .setMessage("You will be notified about this event by InstiApp. Do you also want to add this event to your calendar?")
+                .setMessage("You will be notified about this event by ApnaInsti. Do you also want to add this event to your calendar?")
                 .setPositiveButton("Yes", (dialog, which) -> {
                     createAddToCalendarIntent();
                     saveCalendarDialogPreference(dontShowAgain.isChecked(), true);

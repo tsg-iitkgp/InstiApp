@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">InstiApp</string>
+    <string name="app_name">ApnaInsti</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -38,7 +38,7 @@
     <string name="calendar_no">No</string>
     <string name="calendar_always_ask">Always ask</string>
 
-    <string name="default_notification_channel_id">INSTIAPP_NOTIFS</string>
+    <string name="default_notification_channel_id">ApnaInsti_NOTIFS</string>
 
     <!--NSS side-->
     <string name="google_maps_api_key">AIzaSyC0T4chZbdcKjLkgEts9YVonPFyP7ckMIE</string>
